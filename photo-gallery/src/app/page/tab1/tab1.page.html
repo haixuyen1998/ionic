@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defauleHref="/">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>List</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)">  
+        <ion-icon name="more"></ion-icon>
+      </ion-button> 
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-searchbar (ionChange)="onChangeInput($event)" [(ngModel)]="idName"></ion-searchbar>
+</ion-header>
+<ion-content>
+  <app-element *ngFor="let u of users | detail:idName" 
+                  [email]='u.email'
+                  [name]='u.name'
+                  [img]='u.thumbnail_url'
+                  (click)='openDetailsWithState(u)'>
+    </app-element>
+  <ion-infinite-scroll threshold="5%" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content
+    loading-spinner="bubbles" loading-text="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

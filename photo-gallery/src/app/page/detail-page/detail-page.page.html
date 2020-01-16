@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>Detail-Element</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <img src="{{data.thumbnail_url}}"/>
+    <ion-card-header>
+      <ion-card-title>{{data.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <h4>{{data.email}}</h4>
+     <h5>{{data.is_admin}}</h5>
+     <p>{{data.is_ower}}</p>
+     <p>{{data.status}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

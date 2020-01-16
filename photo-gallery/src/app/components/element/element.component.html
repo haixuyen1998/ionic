@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-item>
+    <ion-avatar slot="start">
+      <div class="ion-text-capitalize" *ngIf="img==null||img==understand; else elseBlock">{{name.slice(0,1)}}</div>
+      <ng-template #elseBlock><img src="{{img}}"/></ng-template>
+    </ion-avatar>
+    <ion-label> 
+      <h3>{{name}}</h3>
+      <p>{{email}}</p>
+    </ion-label>
+  </ion-item>
+</ion-card>
+

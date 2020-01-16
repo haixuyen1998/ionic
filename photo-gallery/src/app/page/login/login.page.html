@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <form [formGroup]="loginForm" #form="ngForm" (ngSubmit)="onlogin()">
+    <ion-list slot="center" lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="text" name="username" formControlName="username"></ion-input> 
+        <div *ngFor="let error of messages.username">
+          <ng-container *ngIf="username.hasError(error.type)&&(username.dirty || username.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div> 
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input type="password" name="password" formControlName="password"></ion-input>
+        <div *ngFor="let error of messages.password">
+          <ng-container *ngIf="password.hasError(error.type)&&(password.dirty || password.touched)">
+            <small class="error-message">{{error.message}}</small>
+          </ng-container>
+        </div>
+      </ion-item>
+      <div class="ion-padding">
+        <ion-button expand="block" [disabled]="loginForm.invalid" type="submit" class="ion-no-margin">Login</ion-button>
+      </div>
+    </ion-list>
+  </form>
+  <ion-label class="error-message"> {{err}} </ion-label>
+</ion-content>
