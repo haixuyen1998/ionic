@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defauleHref="/">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>List</ion-title>
+  </ion-toolbar>
+  <ion-searchbar (ionChange)="onChangeInput($event)" [(ngModel)]="idName"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let user of users | detail:idName">
+    <ion-item (click)="goToDetail(user)">
+      <ion-avatar slot="start">
+        <img src="{{user?.thumbnail_url}}"/>
+      </ion-avatar>
+      <ion-label> 
+        <h2 class="ion-text-capitalize">{{user?.name}}</h2>
+        <p>{{user?.email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="25%" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more users...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

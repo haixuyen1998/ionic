@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defauleHref="/">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <form #form="ngForm" (ngSubmit)="onlogin(form.value)">
+    <ion-list slot="center" lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input required type="text" [(ngModel)]="login.username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input required type="password" [(ngModel)]="login.password" name="password"></ion-input>
+      </ion-item>
+      <div class="ion-padding">
+        <ion-button expand="block"  type="submit" class="ion-no-margin">Login</ion-button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

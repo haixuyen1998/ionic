@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defauleHref="/">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card>
+    <img *ngIf="data.thumbnail_url" [src]="data.thumbnail_url">
+    <ion-card-header>
+      <ion-card-title>{{data.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h3>{{data.email}}</h3>
+     <h4>{{data.is_admin}}</h4>
+     <p>{{data.is_ower}}</p>
+     <p>{{data.status}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
